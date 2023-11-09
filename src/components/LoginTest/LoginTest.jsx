@@ -22,8 +22,7 @@ const useStyle = makeStyles((theme) => ({
     textDecoration: "none",
   },
 }));
-export default function Header() {
-  const color = "white";
+export default function LoginTest() {
   const classes = useStyle();
 
   const [openLogin, setOpenLogin] = React.useState(false);

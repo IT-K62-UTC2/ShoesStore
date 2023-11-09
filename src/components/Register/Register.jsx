@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { green, purple } from "@mui/material/colors";
+
 function Copyright(props) {
   return (
     <Typography
@@ -35,11 +35,11 @@ function Copyright(props) {
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: purple[500],
+    white: {
+      main: "#e3f2fd", //mau trang
     },
-    secondary: {
-      main: green[500],
+    blue: {
+      main: "#0288d1", //mau xnah
     },
   },
 });
@@ -51,6 +51,8 @@ export default function Register() {
     console.log({
       email: data.get("email"),
       password: data.get("password"),
+      fullName: data.get("fullName"),
+      lastName: data.get("lastName"),
     });
   };
 
@@ -66,10 +68,10 @@ export default function Register() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "blue.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography sx={{ m: 1 }} component="h1" variant="h5">
             Sign up
           </Typography>
           <Box
@@ -123,9 +125,7 @@ export default function Register() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
+                  control={<Checkbox value="allowExtraEmails" />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
@@ -147,7 +147,6 @@ export default function Register() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
