@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Grid } from "@mui/material";
 
-import { Skeleton } from "@mui/lab";
 import Product from "./Product";
+
 ProductSkeList.propTypes = {
   data: PropTypes.array,
 };

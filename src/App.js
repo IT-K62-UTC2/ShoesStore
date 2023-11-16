@@ -1,5 +1,4 @@
 import "./App.css";
-import catogoryApi from "./api/categorys";
 
 import React, { useEffect } from "react";
 
@@ -12,17 +11,6 @@ import Footer from "./components/Fotter/Footer";
 import Layout from "./features/Layout/Layout";
 
 function App() {
-  useEffect(() => {
-    const fetchCategory = async () => {
-      const params = {
-        _limit: 2,
-      };
-      const categogyList = await catogoryApi.getAll(params);
-      console.log(categogyList);
-    };
-    fetchCategory();
-  }, []);
-
   return (
     <div>
       <Header />

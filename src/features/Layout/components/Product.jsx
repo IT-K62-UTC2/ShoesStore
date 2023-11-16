@@ -11,12 +11,12 @@ Product.propTypes = {
 function Product({ product }) {
   return (
     <Box padding={1}>
-      <Box padding={1}>
-        <img src={product.img} alt="" width="100%" />
+      <Box padding={1} minHeight={215}>
+        <img src={product.thumbnail} alt="" width="100%" />
       </Box>
 
       <Typography variant="body2">{product.name}</Typography>
-      <Typography variant="body2">{product.id}</Typography>
+      <Typography variant="body2">{product.salePrice}</Typography>
     </Box>
   );
 }
