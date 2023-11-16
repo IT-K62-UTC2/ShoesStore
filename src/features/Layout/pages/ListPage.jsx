@@ -5,6 +5,7 @@ import { makeStyles } from "@mui/styles";
 import catogoryApi from "../../../api/categorys";
 import ProductSke from "../components/ProductSke";
 import ProductSkeList from "../components/ProductSkeList";
+import AddItemButton from "../../../components/AddItemButton/AddItemButton";
 ListPage.propTypes = {};
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ function ListPage(props) {
 
   return (
     <Box className={classes.root}>
+      <AddItemButton />
       <Container>
         <Grid container spacing={1}>
           <Grid className={classes.left} item>

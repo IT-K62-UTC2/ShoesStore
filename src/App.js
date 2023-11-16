@@ -29,6 +29,8 @@ function App() {
 
       <Routes>
         <Route path="/home" Component={Header} />
+        <Route path="/login" Component={Login} />
+        <Route path="/register" Component={Register} />
         <Route path="/product" Component={Layout} />
       </Routes>
 

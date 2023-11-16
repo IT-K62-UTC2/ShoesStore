@@ -7,11 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import { makeStyles } from "@mui/styles";
 import Register from "../Register/Register";
@@ -26,22 +22,6 @@ export default function Header() {
   const color = "white";
   const classes = useStyle();
 
-  const [openLogin, setOpenLogin] = React.useState(false);
-  const [openRe, setOpenRe] = React.useState(false);
-  const handleClickOpenRe = () => {
-    setOpenRe(true);
-  };
-  const handleCloseRe = () => {
-    setOpenRe(false);
-  };
-  const handleClickOpenLogin = () => {
-    setOpenLogin(true);
-  };
-
-  const handleCloseLogin = () => {
-    setOpenLogin(false);
-  };
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -53,7 +33,15 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <LocalGroceryStoreIcon></LocalGroceryStoreIcon>
+            {" "}
+            <NavLink
+              style={() => ({
+                color: "white",
+              })}
+              to="/product"
+            >
+              <LocalGroceryStoreIcon color="inherit"></LocalGroceryStoreIcon>
+            </NavLink>
           </IconButton>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 3 }}>
@@ -70,9 +58,7 @@ export default function Header() {
             to="/login"
             className="active-login"
           >
-            <Button onClick={handleClickOpenLogin} color="inherit">
-              Login
-            </Button>
+            <Button color="inherit">Login</Button>
           </NavLink>
           <NavLink
             style={() => ({
@@ -81,47 +67,10 @@ export default function Header() {
             to="/register"
             className="active-register"
           >
-            <Button onClick={handleClickOpenRe} color="inherit">
-              Register
-            </Button>
+            <Button color="inherit">Register</Button>
           </NavLink>
         </Toolbar>
       </AppBar>
-      <Dialog
-        onClose={(event, reason, handleClose) => {
-          if (reason !== "backdropClick" && reason !== "escapeKeyDown") {
-            // Set 'open' to false, however you would do that with your particular code.
-            setOpenLogin(false);
-          }
-        }}
-        disableEscapeKeyDown="true"
-        open={openLogin}
-      >
-        <DialogContent>
-          <Login />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseLogin}>Cancel</Button>
-        </DialogActions>
-      </Dialog>
-
-      <Dialog
-        onClose={(event, reason, handleClose) => {
-          if (reason !== "backdropClick" && reason !== "escapeKeyDown") {
-            // Set 'open' to false, however you would do that with your particular code.
-            setOpenRe(false);
-          }
-        }}
-        disableEscapeKeyDown="true"
-        open={openRe}
-      >
-        <DialogContent>
-          <Register />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseRe}>Cancel</Button>
-        </DialogActions>
-      </Dialog>
     </Box>
   );
 }
